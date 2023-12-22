@@ -1,0 +1,38 @@
+import cv2
+import matplotlib.pyplot as plt
+
+# Read an image using OpenCV
+image = cv2.imread('example_image.jpg')  # Replace 'example_image.jpg' with your image path
+
+# Display the original image using Matplotlib
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+plt.title('Original Image')
+plt.axis('off')
+plt.show()
+
+# Convert the image to grayscale
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Display the grayscale image
+plt.imshow(gray_image, cmap='gray')
+plt.title('Grayscale Image')
+plt.axis('off')
+plt.show()
+
+# Apply Gaussian blur to the image
+blurred_image = cv2.GaussianBlur(image, (7, 7), 0)
+
+# Display the blurred image
+plt.imshow(cv2.cvtColor(blurred_image, cv2.COLOR_BGR2RGB))
+plt.title('Blurred Image')
+plt.axis('off')
+plt.show()
+
+# Edge detection using Canny edge detector
+edges = cv2.Canny(gray_image, 100, 200)
+
+# Display the edges detected in the image
+plt.imshow(edges, cmap='gray')
+plt.title('Edges Detected')
+plt.axis('off')
+plt.show()
